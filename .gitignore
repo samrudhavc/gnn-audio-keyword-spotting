@@ -1,0 +1,17 @@
+# Local Python environment
+.gcnn-audio-env/
+.venv/
+venv/
+
+# IDE settings
+.idea/
+
+# Generated Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+SW/build/
+SW/datasets/
+SW/wandb/
+SW/checkpoints/
+SW/best/

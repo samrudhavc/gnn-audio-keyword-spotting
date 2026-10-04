@@ -1,0 +1,18 @@
+cat >> .gitignore <<'EOF'
+
+# Python virtual environment
+.gcnn-audio-env/
+.venv/
+venv/
+
+# Datasets
+SW/datasets/
+
+# Weights & Biases
+SW/wandb/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+EOF

@@ -1,0 +1,35 @@
+general:
+  name: N-TDigits
+  data_dir: /home/lsriw/Datasets/N-Tdigits
+
+  time_window: 1_000_000 # 1 second
+  num_channels: 64 # number of frequency channels
+
+preprocess:
+  create_val: False
+  val_split: 0.1
+
+graph:
+  time_radius: 20_000
+  channel_radius: 16
+  skip_channels: 2
+  features: global # local, global or None
+
+train:
+  batch_size: 32
+  num_workers: 0
+  num_epochs: 100
+  lr: 0.0002
+  weight_decay: 0.0001
+  use_scheduler: True
+
+model:
+  num_classes: 11
+  conv_channels: [64, 64, 64, 64]
+  conv_bits: [16, 8, 8, 8]
+
+  linear_channels: 512
+  global_pooling: mean # mean, max or add
+
+
+

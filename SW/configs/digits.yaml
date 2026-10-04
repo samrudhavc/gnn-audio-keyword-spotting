@@ -1,0 +1,35 @@
+general:
+  name: Spiking_Heidelberg_Digits
+  data_dir: datasets/hdspikes
+
+  time_window: 1000000 # 1 second
+  num_channels: 700 # number of frequency channels
+
+preprocess:
+  create_val: False
+  val_split: 0.1
+
+graph:
+  time_radius: 20000
+  channel_radius: 100
+  skip_channels: 10
+  features: global # local, global or None
+
+train:
+  batch_size: 4
+  num_workers: 0
+  num_epochs: 100
+  lr: 0.0002
+  weight_decay: 0.0001
+  use_scheduler: True
+
+model:
+  num_classes: 20
+  conv_channels: [64, 64, 64, 64]
+  conv_bits: [16, 8, 8, 8]
+
+  linear_channels: 64
+  global_pooling: mean # mean, max or add
+
+
+
