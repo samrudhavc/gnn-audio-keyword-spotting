@@ -1,17 +1,43 @@
-# Local Python environment
+# Python environments and caches
 .gcnn-audio-env/
 .venv/
-venv/
-
-# IDE settings
-.idea/
-
-# Generated Python artifacts
 __pycache__/
-*.py[cod]
+*.pyc
 *.so
-SW/build/
+
+# Training datasets and generated audio
 SW/datasets/
-SW/wandb/
-SW/checkpoints/
+SW/audio/
+SW/spike_data_generator/outputs/
+
+# Model checkpoints
 SW/best/
+SW/checkpoints/
+*.ckpt
+
+# Training logs
+SW/lightning_logs/
+SW/wandb/
+
+# Temporary files
+SW/np
+SW/plt
+
+# Vivado generated files
+*.cache/
+*.runs/
+*.sim/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.jou
+*.log
+*.wdb
+.Xil/
+
+# Keep only selected results
+SW/results/*
+!SW/results/figures/
+SW/results/figures/*
+!SW/results/figures/*.png
+!SW/results/figures/*.pdf

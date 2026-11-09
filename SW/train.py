@@ -102,10 +102,10 @@ def main():
     trainer.test(model, datamodule=dm)
     
     # torch.save(model.model, best_model_path.replace('calibrated', 'quantized'))
-    torch.save(
-        model.model,
-        'checkpoints/best_model_quantized.ckpt'
-    )
+    # torch.save(
+    #     model.model,
+    #     'checkpoints/best_model_quantized.ckpt'
+    # )
 
 
 if __name__ == '__main__':

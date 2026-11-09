@@ -19,10 +19,18 @@ cfg = dotmap.DotMap(cfg)
 dm = SpikingDigits(cfg)
 dm.setup()
 
-model = LNRecognition(cfg)
+# model = LNRecognition(cfg)
 
-model.model.freeze()
-model.model.load_state_dict(torch.load('model.pth'))
+# # model.model.freeze()
+# model.model.load_state_dict(torch.load('model.pth'))
+
+model = LNRecognition.load_from_checkpoint(
+    'checkpoints/best_model_float-v1.ckpt',
+    config=cfg,
+    weights_only=False
+)
+
+model.eval()
 
 
 print(model.model.state_dict())
