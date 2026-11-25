@@ -152,6 +152,9 @@ class MyPointNetConv(MessagePassing):
         msg[:, 1] += 1/7 # radius_channel / num_channels
         msg[:, 1] *= 7/2 # num_channels / (2*radius_channel)
 
+        # Preserve transformed position features for calibration.
+        pos_features = msg
+
         if x_j is not None:
             msg = torch.cat([x_j, msg], dim=1)
 
@@ -183,7 +186,7 @@ class MyPointNetConv(MessagePassing):
         # Update output observer
         if self.training:
             self.observer_output.update(msg)
-            self.observer_output.update(pos_j-pos_i) # Update observer for pos_j-pos_i to avoid quantization error
+            self.observer_output.update(pos_features)
 
         msg = FakeQuantize.apply(msg, self.observer_output)
         return msg
